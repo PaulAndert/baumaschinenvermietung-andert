@@ -1,0 +1,114 @@
+
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header img {
+  max-height: 80px;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+}
+
+h2 {
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.preise {
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.8rem 5rem !important;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background: #f0f0f0;
+}
+
+.fotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.fotos img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.kontakt {
+  margin-top: 40px;
+}
+
+.kontakt form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.kontakt input,
+.kontakt textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.kontakt button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.kontakt button:hover {
+  background-color: #555;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background: #eee;
+  padding: 20px;
+}
+
+footer div {
+  max-width: 800px;
+  text-align: left;
+  font-size: 14px;
+}
