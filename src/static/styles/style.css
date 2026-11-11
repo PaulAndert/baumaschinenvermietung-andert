@@ -112,3 +112,35 @@ footer div {
   text-align: left;
   font-size: 14px;
 }
+
+.maschinenliste {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+
+.maschinenkarte {
+  display: block;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+}
+
+.maschinenkarte:hover,
+.maschinenkarte:focus-visible {
+  border-color: #333;
+}
+
+.maschinenkarte img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.maschinenkarte span {
+  text-decoration: underline;
+}

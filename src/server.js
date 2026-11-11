@@ -5,6 +5,8 @@ const nodemailer = require('nodemailer');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const cors = require('cors');
+const path = require('path');
+const maschinen = require('./data/maschinen');
 
 const app = express();
 app.use(helmet());
@@ -70,9 +72,37 @@ const mailOptions = {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.get(['/', '/index.html'], (req, res) => {
+  res.render('index', { maschinen });
+});
+
+app.get('/maschinen/:slug', (req, res) => {
+  const maschine = maschinen.find(eintrag => eintrag.slug === req.params.slug);
+
+  if (!maschine) {
+    return res.status(404).send('Maschine nicht gefunden.');
+  }
+
+  res.render('maschine', { maschine });
+});
+
+const staticDir = path.join(__dirname, 'static');
+// const cssFile = path.join(staticDir, 'styles', 'style.css');
+
+// console.log('Serverdatei:', __filename);
+// console.log('CSS-Datei:', cssFile);
+// console.log('CSS vorhanden:', require('fs').existsSync(cssFile));
+
+app.use(express.static(staticDir));
+
+// app.use(express.static(path.join(__dirname, 'static')));
+
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Server läuft auf http://localhost:${PORT}`);
 });
 
-app.use(express.static('public')); // Statische Dateien ohne Limit
+// app.use(express.static('static')); // Statische Dateien ohne Limit

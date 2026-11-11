@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Baumaschinenvermietung Andert</title>
+        <link rel="stylesheet" href="/styles/style.css">
+        <script src="form.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.jpeg" alt="Firmenlogo">
+        <h1>Baumaschinenvermietung Andert</h1>
+    </header>
+
+    <div class="container">  
+      <section>
+        <h2>Maschinen zur Miete</h2>
+
+        <div class="maschinenliste">
+          <% for (const maschine of maschinen) { %>
+            <a class="maschinenkarte" href="/maschinen/<%= maschine.slug %>">
+              <img src="<%= maschine.bilder[0] %>" alt="">
+              <h3><%= maschine.name %></h3>
+
+              <ul>
+                <% for (const merkmal of maschine.merkmale.slice(0, 3)) { %>
+                  <li><%= merkmal %></li>
+                <% } %>
+              </ul>
+
+              <span>Preise und Details ansehen</span>
+            </a>
+          <% } %>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+<div>
+        <h2>Impressum</h2>
+        <p>
+	Name: <strong>Andert & Andert GbR</strong><br>
+    Inhaber: Paul Andert & Ben Andert<br>
+    Rechtsform: Gesellschaft bürgerlichen Rechts<br>
+    Umsatzsteuer-ID gemäß §27a UStG: 517546723763002<br>
+	Adresse: Alte Bliesendorfer Straße 14<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14797 Kloster Lehnin<br>
+        Telefon: 0173 7457111<br>
+        E-Mail: andertbaumaschinen@mail.de</p>
+</div>
+    </footer>
+</body>
+</html>

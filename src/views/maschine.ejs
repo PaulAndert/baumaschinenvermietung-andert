@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= maschine.name %> | Baumaschinenvermietung Andert</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <a href="/">
+      <img src="/images/logo.jpeg" alt="Baumaschinenvermietung Andert – Startseite">
+    </a>
+  </header>
+
+  <main class="container">
+    <a href="/">← Zur Maschinenübersicht</a>
+
+    <h1><%= maschine.name %></h1>
+    <p><%= maschine.beschreibung %></p>
+    <ul>
+      <% for (const merkmal of maschine.merkmale) { %>
+        <li><%= merkmal %></li>
+      <% } %>
+    </ul>
+
+    <h2>Bilder</h2>
+    <div class="fotos">
+      <% for (const [index, bild] of maschine.bilder.entries()) { %>
+        <img src="<%= bild %>" alt="<%= maschine.name %> – Ansicht <%= index + 1 %>">
+      <% } %>
+    </div>
+
+    <h2>Preise und Konditionen</h2>
+    <% for (const tabelle of maschine.preistabellen) { %>
+      <h3><%= tabelle.titel %></h3>
+      <table>
+        <thead>
+          <tr>
+            <% for (const spalte of tabelle.spalten) { %>
+              <th scope="col"><%= spalte %></th>
+            <% } %>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (const zeile of tabelle.zeilen) { %>
+            <tr>
+              <% for (const wert of zeile) { %>
+                <td><%= wert %></td>
+              <% } %>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } %>
+
+    <% for (const hinweis of maschine.hinweise) { %>
+      <p><%= hinweis %></p>
+    <% } %>
+
+    <p><a href="/#kontakt">Mietanfrage stellen</a></p>
+  </main>
+
+  <%- include('footer') %>
+</body>
+</html>
